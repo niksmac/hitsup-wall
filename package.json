@@ -1,0 +1,16 @@
+{
+  "name": "hitsup-wall",
+  "version": "1.0.0",
+  "description": "Social media wall design for [hitsup](httsp://hitsup.in)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nikhil Mohan <nikhil@lightrains.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-sass": "^2.3.2"
+  }
+}

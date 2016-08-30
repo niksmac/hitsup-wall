@@ -1,0 +1,140 @@
+
+$bgcolor: #DDD;
+$fontcolor: #888888;
+$offfont:  #111111;
+$tilebg: #FFF;
+$linkcolor: #CCC;
+$pad: 8px;
+
+
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+
+html, body {
+  font-family: 'Lato', sans-serif;
+  background: $bgcolor;
+  margin: 0;
+  padding: 0;
+  color: $fontcolor;
+  font-weight: 400;
+
+  p {
+    line-height: 25px !important;
+  }
+
+  h3 {
+    :first-letter {
+      text-transform: uppercase;
+    }
+
+  }
+}
+
+h2, h3, b, strong {
+  color: $offfont;
+  font-weight: 700;
+}
+
+div.item:before {
+  content: "";
+  border-top-width: 20px;
+  border-top-style: solid;
+  border-right: 20px solid transparent;
+  top: 0;
+  display: block;
+  height: 0;
+  left: 0;
+  position: absolute;
+  width: 0;
+}
+.item {
+  &.ht-w-img {
+    padding-top: 0
+  }
+  background: $tilebg;
+  padding: 10px 0;
+  word-break: break-all;
+  word-wrap: break-word;
+  position: relative;
+}
+
+.ht-content {
+  padding: 5px;
+  padding: 5px 10px;
+  h3 {
+    padding: 2px 0;
+    margin: 2px 0;
+    font-size: 1.4rem;
+  }
+}
+
+footer {
+  font-size: 12px;
+}
+
+a {
+  color: $linkcolor;
+}
+
+.ht-twitter {
+  background: $bgcolor;
+  h3 {
+    font-size: 1.5rem;
+    font-style: italic;
+  }
+}
+
+.ht-only-img {
+  padding: 0;
+  margin: 0;
+}
+
+.overlay {
+  display: none;
+  position: absolute;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  background-color: rgba(0, 0, 0, 0.75);
+  width: 100%;
+  height: 100%;
+  color: $tilebg;
+  padding: $pad;
+  :hover {
+    cursor: pointer;
+  }
+  .content {
+    @include vertical-align;
+  }
+  .ov-row {
+    min-height: 20px;
+    margin: 10px 0;
+    text-align: center;
+  }
+}
+
+
+ul.share-buttons{
+  list-style: none;
+  padding: 0;
+  li{
+    display: inline;
+  }
+  .sr-only {
+    position: absolute;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0;
+    border: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+  }
+}
