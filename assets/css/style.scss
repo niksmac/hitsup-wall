@@ -5,7 +5,8 @@ $offfont:  #111111;
 $tilebg: #FFF;
 $linkcolor: #CCC;
 $pad: 8px;
-
+$dark: #333;
+$ahover: #cc5800;
 
 @mixin vertical-align {
   position: relative;
@@ -43,9 +44,9 @@ h2, h3, b, strong {
 
 div.item:before {
   content: "";
-  border-top-width: 20px;
+  border-top-width: 30px;
   border-top-style: solid;
-  border-right: 20px solid transparent;
+  border-right: 30px solid transparent;
   top: 0;
   display: block;
   height: 0;
@@ -80,6 +81,20 @@ footer {
 
 a {
   color: $linkcolor;
+  &:hover {
+    color: $ahover !important
+  }
+  &.likeme {
+    display: inline;
+    padding: 0 0 0 17px;
+    background: url(../img/heart.png) no-repeat left center transparent;
+  }
+  &.comms {
+    display: inline;
+    float: right;
+    padding: 0 0 0 17px;
+    background: url(../img/comments.png) no-repeat left center transparent;
+  }
 }
 
 .ht-twitter {
@@ -102,6 +117,7 @@ a {
   top: 0;
   left: 0;
   z-index: 9;
+  font-size: 14px;
   background-color: rgba(0, 0, 0, 0.75);
   width: 100%;
   height: 100%;
@@ -136,5 +152,14 @@ ul.share-buttons{
     height: 1px;
     width: 1px;
     overflow: hidden;
+  }
+}
+.ht-stats {
+  margin: 10px 0;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: $offfont !important;
+  a {
+    color: $dark;
   }
 }

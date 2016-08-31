@@ -33,3 +33,31 @@ makeboxes = function() {
     }
     return boxes;
 }
+
+function initHover() {
+  $('.item').hover(function() {
+    card = $(this);
+    var titl = '';
+    titl = jQuery(card, 'p').text();
+    $('p.innerc').text('');
+    $('p.innerc').text(titl);
+    overlay = $('.overlay');
+    overlay.css('display', 'block');
+    overlay.appendTo(card)
+  });
+}
+
+$("#ht-wall").gridalicious({
+  gutter: 5,
+  width: 300
+});
+
+$(window).bind('scroll', function() {
+  if($(window).scrollTop() >= $('.ht-wall').offset().top + $('.ht-wall').outerHeight() - window.innerHeight) {
+    $("#ht-wall").gridalicious('append', makeboxes());
+    initHover();
+  }
+});
+
+
+initHover();
