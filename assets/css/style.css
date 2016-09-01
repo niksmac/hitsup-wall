@@ -117,3 +117,50 @@ ul.share-buttons {
   color: #111111 !important; }
   .ht-stats a {
     color: #333; }
+
+.ht-header {
+  height: 300px;
+  overflow: hidden;
+  clear: both;
+  position: relative; }
+  .ht-header img.wall {
+    overflow: hidden;
+    display: block;
+    width: 100%; }
+  .ht-header .ht-header-inside {
+    position: absolute;
+    min-height: 30px;
+    z-index: 99;
+    background: rgba(0, 0, 0, 0.6);
+    left: 10vw;
+    bottom: 3px; }
+    .ht-header .ht-header-inside h1, .ht-header .ht-header-inside h2 {
+      padding: 0;
+      margin: 0;
+      color: #FFF; }
+    .ht-header .ht-header-inside h1 {
+      font-size: 23pt; }
+    .ht-header .ht-header-inside h2 {
+      font-weight: 300;
+      font-size: 15px; }
+    .ht-header .ht-header-inside img {
+      width: 100px;
+      float: left; }
+    .ht-header .ht-header-inside .ht-bio {
+      float: left;
+      min-width: 200px;
+      padding: 10px; }
+
+.ht-filter {
+  text-align: center;
+  background: #000;
+  height: 40px;
+  margin-bottom: 5px;
+  padding-top: 15px; }
+  .ht-filter ul {
+    margin: 0;
+    padding: 0; }
+    .ht-filter ul li {
+      display: inline;
+      vertical-align: middle;
+      margin: 0 6px; }

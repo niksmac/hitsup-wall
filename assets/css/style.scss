@@ -163,3 +163,60 @@ ul.share-buttons{
     color: $dark;
   }
 }
+.ht-header {
+  height: 300px;
+  overflow: hidden;
+  clear: both;
+  position: relative;
+  img.wall {
+    overflow: hidden;
+    display: block;
+    width: 100%;
+  }
+  .ht-header-inside {
+    position: absolute;
+    min-height: 30px;
+    z-index: 99;
+    background: rgba(0, 0, 0, 0.6);
+    left: 10vw;
+    bottom: 3px;
+    h1, h2 {
+      padding: 0;
+      margin: 0;
+      color: $tilebg
+    }
+    h1 {
+      font-size: 23pt;
+    }
+    h2 {
+      font-weight: 300;
+      font-size: 15px;
+    }
+    img {
+      width: 100px;
+      float: left;
+    }
+    .ht-bio {
+      float: left;
+      min-width: 200px;
+      padding: 10px;
+    }
+  }
+}
+
+.ht-filter {
+  text-align: center;
+  background: #000;
+  height: 40px;
+  margin-bottom: 5px;
+  padding-top: 15px;
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      display: inline;
+      vertical-align: middle;
+      margin: 0 6px;
+    }
+  }
+}
