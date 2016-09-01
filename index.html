@@ -184,8 +184,8 @@ $(window).bind('scroll', function() {
 function initHover() {
   $('.item').hover(function() {
     card = $(this);
-    var titl = jQuery(this, 'p').text().trim();
-    $('p.innerc').text(titl);
+    $('p.innerc').text("");
+    $('p.innerc').text(jQuery(card, 'p').text().trim());
     overlay = $('.overlay');
     overlay.css('display', 'block');
     overlay.appendTo(card)
