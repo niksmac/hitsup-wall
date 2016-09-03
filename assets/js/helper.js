@@ -34,13 +34,11 @@ makeboxes = function() {
     return boxes;
 }
 
-function initHover() {
-  $('.item').hover(function() {
+initHover = function () {
+  $('.item').on("mouseover", function() {
     card = $(this);
-    var titl = '';
-    titl = jQuery(card, 'p').text();
-    $('p.innerc').text('');
-    $('p.innerc').text(titl);
+    var innerTxt = jQuery(card, 'p').text().trim();
+    $('p.innerc').empty().text(innerTxt);
     overlay = $('.overlay');
     overlay.css('display', 'block');
     overlay.appendTo(card)
@@ -49,7 +47,8 @@ function initHover() {
 
 $("#ht-wall").gridalicious({
   gutter: 5,
-  width: 300
+  width: 300,
+  animate: true
 });
 
 $(window).bind('scroll', function() {

@@ -7,6 +7,7 @@ $linkcolor: #CCC;
 $pad: 8px;
 $dark: #333;
 $ahover: #cc5800;
+$footerbg: #2e2e2e;
 
 @mixin vertical-align {
   position: relative;
@@ -176,6 +177,7 @@ ul.share-buttons{
   .ht-header-inside {
     position: absolute;
     min-height: 30px;
+    min-width: 350px;
     z-index: 99;
     background: rgba(0, 0, 0, 0.6);
     left: 10vw;
@@ -206,7 +208,7 @@ ul.share-buttons{
 
 .ht-filter {
   text-align: center;
-  background: #000;
+  background: $footerbg;
   height: 40px;
   margin-bottom: 5px;
   padding-top: 15px;
@@ -218,5 +220,20 @@ ul.share-buttons{
       vertical-align: middle;
       margin: 0 6px;
     }
+  }
+}
+.ht-footer {
+  min-height: 150px;
+  background-color: $footerbg;
+  .inner-footer {
+    max-width: 1100px;
+    margin: 10px auto;
+    padding: 15px 0;
+  }
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
+  .ht-header-inside {
+    width: 100%;
   }
 }
