@@ -16,7 +16,6 @@ makeboxes = function() {
    for(i=0;i<amount;i++){
       num = Math.floor(Math.random()*randTxt.length)
       div = $('<div></div>').addClass('item');
-
       h3 = '<div class="ht-content"><h3>'+randTxt[num]+'</h3></div>';
       if(num % 2 === 0) {
         div.addClass('ht-w-img');
@@ -25,9 +24,7 @@ makeboxes = function() {
       }
       else if(num % 3 === 0) {
         div.addClass('ht-twitter');
-
       }
-
       div.append(h3);
       boxes.push(div);
     }
@@ -39,14 +36,51 @@ initHover = function () {
     jQuery('p.innerc').empty();
     var card = jQuery(this);
     var overlay = jQuery('.overlay');
-    var innerWrapper = jQuery('p.innerc')
+    var innerWrapper = jQuery('p.innerc');
+    var urlData = card.find(".url-value").data("url");
 
     innerWrapper.text(jQuery(card, 'p').text().trim());
     overlay.css('display', 'block').appendTo(card);
+
+    placeShareUrl(urlData);
+
+  });
+  jQuery('.share-this').on("click", function() {
+    var href = jQuery(this).attr('href');
+    var shareSocial = jQuery(this).data("social");
+
+    switch (shareSocial){
+      case "fb": facebookWindow(href); break;
+      case "twitter": twitterWindow(href); break;
+      case "google": googlePlusWindow(href); break;
+      case "email": emailWindow(href); break;
+    }
   });
 }
+placeShareUrl = function(url){
+  jQuery('a.share-this').each(function() {
+    jQuery(this).attr('href',url);
+  });
+}
+facebookWindow = function(url){
+  window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url) + '&t=' + encodeURIComponent(url));
+  return false;
+}
+twitterWindow = function(url){
+  window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20'  + encodeURIComponent(document.URL));
+  return false;
+}
+googlePlusWindow = function(url){
+  window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL));
+  return false;
+}
+emailWindow = function(url){
+  window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL));
+  return false;
+}
 
-$("#ht-wall").gridalicious({
+
+$(".ht-wall").gridalicious({
   gutter: 5,
   width: 300,
   animate: true
