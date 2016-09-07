@@ -35,13 +35,14 @@ makeboxes = function() {
 }
 
 initHover = function () {
-  $('.item').on("mouseover", function() {
-    card = $(this);
-    var innerTxt = jQuery(card, 'p').text().trim();
-    $('p.innerc').empty().text(innerTxt);
-    overlay = $('.overlay');
-    overlay.css('display', 'block');
-    overlay.appendTo(card)
+  jQuery('.item').on("mouseenter", function() {
+    jQuery('p.innerc').empty();
+    var card = jQuery(this);
+    var overlay = jQuery('.overlay');
+    var innerWrapper = jQuery('p.innerc')
+
+    innerWrapper.text(jQuery(card, 'p').text().trim());
+    overlay.css('display', 'block').appendTo(card);
   });
 }
 
