@@ -15,16 +15,28 @@ h2, h3, b, strong {
   font-weight: 700; }
 
 div.item:before {
-  content: "";
   border-top-width: 30px;
-  border-top-style: solid;
-  border-right: 30px solid transparent;
-  top: 0;
   display: block;
-  height: 0;
-  left: 0;
+  left: 3px;
+  top: 4px;
   position: absolute;
-  width: 0; }
+  font-family: "socicon" !important;
+  color: #fff; }
+
+div.item.ht-twitter:before {
+  content: "\e040"; }
+
+div.item.ht-facebook:before {
+  content: "\e041"; }
+
+div.item.ht-googleplus:before {
+  content: "\e042"; }
+
+div.item.ht-youtube:before {
+  content: "\e051"; }
+
+div.item.ht-instagram:before {
+  content: "\e057"; }
 
 .item {
   background: #FFF;
@@ -158,6 +170,8 @@ ul.share-buttons {
   height: 40px;
   margin-bottom: 5px;
   padding-top: 15px; }
+  .ht-filter a {
+    text-decoration: none; }
   .ht-filter ul {
     margin: 0;
     padding: 0; }

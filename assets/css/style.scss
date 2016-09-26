@@ -8,6 +8,7 @@ $pad: 8px;
 $dark: #333;
 $ahover: #cc5800;
 $footerbg: #2e2e2e;
+$white: #fff;
 
 @mixin vertical-align {
   position: relative;
@@ -44,16 +45,30 @@ h2, h3, b, strong {
 }
 
 div.item:before {
-  content: "";
   border-top-width: 30px;
-  border-top-style: solid;
-  border-right: 30px solid transparent;
-  top: 0;
   display: block;
-  height: 0;
-  left: 0;
+  left: 3px;
+  top: 4px;
   position: absolute;
-  width: 0;
+  font-family: "socicon" !important;
+  color: $white;
+}
+div.item {
+  &.ht-twitter:before {
+    content: "\e040";
+  }
+  &.ht-facebook:before {
+    content: "\e041";
+  }
+  &.ht-googleplus:before {
+    content: "\e042";
+  }
+  &.ht-youtube:before {
+    content: "\e051";
+  }
+  &.ht-instagram:before {
+    content: "\e057";
+  }
 }
 .item {
   &.ht-w-img {
@@ -212,6 +227,9 @@ ul.share-buttons{
   height: 40px;
   margin-bottom: 5px;
   padding-top: 15px;
+  a {
+    text-decoration: none;
+  }
   ul {
     margin: 0;
     padding: 0;
@@ -231,7 +249,6 @@ ul.share-buttons{
     padding: 15px 0;
   }
 }
-
 @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
   .ht-header-inside {
     width: 100%;
