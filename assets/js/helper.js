@@ -37,45 +37,50 @@ initHover = function () {
     var card = jQuery(this);
     var overlay = jQuery('.overlay');
     var innerWrapper = jQuery('p.innerc');
-    var urlData = card.find(".url-value").data("url");
+    var urlData = card.find(".url-value").attr("data-url");
+    var innetContent = jQuery(card, 'p.theText').text().trim();
 
-    innerWrapper.text(jQuery(card, 'p').text().trim());
+    innerWrapper.text(innetContent);
     overlay.css('display', 'block').appendTo(card);
 
-    placeShareUrl(urlData);
+    placeShareUrl(urlData, innetContent);
 
   });
-  jQuery('.share-this').on("click", function() {
+  jQuery('.share-this').on("click", function(e) {
+    e.preventDefault();
     var href = jQuery(this).attr('href');
-    var shareSocial = jQuery(this).data("social");
+    var shareSocial = jQuery(this).attr("data-social");
+    var shareTitle = jQuery(this).attr("data-ctitle");
 
     switch (shareSocial){
-      case "fb": facebookWindow(href); break;
-      case "twitter": twitterWindow(href); break;
-      case "google": googlePlusWindow(href); break;
-      case "email": emailWindow(href); break;
+      case "fb": facebookWindow(href, shareTitle); break;
+      case "twitter": twitterWindow(href, shareTitle); break;
+      case "google": googlePlusWindow(href, shareTitle); break;
+      case "email": emailWindow(href, shareTitle); break;
     }
   });
 }
-placeShareUrl = function(url){
+placeShareUrl = function(url, innetContent){
+  var actContent = innetContent.substr(0, 160).replace(/(\r\n|\n|\r)\s+/gm," ");;
   jQuery('a.share-this').each(function() {
-    jQuery(this).attr('href',url);
+    jQuery(this).attr('href', url);
+    jQuery(this).attr('data-ctitle', actContent);
   });
 }
-facebookWindow = function(url){
+facebookWindow = function(url, shareTitle){
   window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url) + '&t=' + encodeURIComponent(url));
   return false;
 }
-twitterWindow = function(url){
-  window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20'  + encodeURIComponent(document.URL));
+twitterWindow = function(url, shareTitle){
+  window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareTitle) + ':%20'  + encodeURIComponent(document.URL));
   return false;
 }
-googlePlusWindow = function(url){
+googlePlusWindow = function(url, shareTitle){
   window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL));
   return false;
 }
-emailWindow = function(url){
-  window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL));
+emailWindow = function(url, shareTitle){
+  window.open('mailto:?subject=' + encodeURIComponent(shareTitle) + '&body=' +  encodeURIComponent(document.URL));
   return false;
 }
 
