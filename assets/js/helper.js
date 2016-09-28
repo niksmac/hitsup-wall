@@ -68,19 +68,19 @@ placeShareUrl = function(url, innetContent){
   });
 }
 facebookWindow = function(url, shareTitle){
-  window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url) + '&t=' + encodeURIComponent(url));
+  window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url) + '&t=' + encodeURIComponent(shareTitle));
   return false;
 }
 twitterWindow = function(url, shareTitle){
-  window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareTitle) + ':%20'  + encodeURIComponent(document.URL));
+  window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareTitle) + ':%20'  + encodeURIComponent(url));
   return false;
 }
 googlePlusWindow = function(url, shareTitle){
-  window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL));
+  window.open('https://plus.google.com/share?url=' + encodeURIComponent(url));
   return false;
 }
 emailWindow = function(url, shareTitle){
-  window.open('mailto:?subject=' + encodeURIComponent(shareTitle) + '&body=' +  encodeURIComponent(document.URL));
+  window.open('mailto:?subject=' + encodeURIComponent(shareTitle) + '&body=' +  encodeURIComponent(shareTitle + ' ' + url));
   return false;
 }
 
